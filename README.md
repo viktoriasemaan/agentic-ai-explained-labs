@@ -1,64 +1,59 @@
-# Agentic AI Explained: Hands-On with Databricks
+# Agentic AI Explained
 
-Companion guides for the **Agentic AI Explained** short-form video series by [Viktoria Semaan](https://www.linkedin.com/in/semaan/), Principal AI Evangelist at Databricks.
+A short-form video course on the Data and AI skills moving fastest right now: model routing, agent governance, guardrails, memory, and running agents in production on Databricks.
 
-Each video is a fast explanation of one concept. Each guide here is the deeper version, with the configuration, the demo walkthrough, and the reasoning that a 90 second video has no room for. The series covers the runtime control layer that production agent systems need, built with Omnigent, Unity AI Gateway, and Unity Catalog on Databricks.
+Every lesson is a short video paired with a written guide here, a lab you run yourself, and a challenge that goes past what the video shows. The videos are the fast version. This repo is where you actually build it.
 
-Written for software developers, solutions architects, and data scientists.
+The full course lives in one playlist on the Databricks YouTube channel. New lessons drop regularly, so subscribe and stay tuned.
+
+Written for software developers, solutions architects, and data scientists. The guides do not simplify away technical detail.
+
+<p align="center">
+  <img src="./assets/unity-ai-gateway.gif" alt="Animated diagram: every request from users, apps, and agents passes through Unity AI Gateway before reaching models, agents, MCP servers, and tools" width="620">
+</p>
 
 ## How to follow along
 
-Omnigent is open source and available at [omnigent.ai](https://omnigent.ai). The Databricks portions run on [Databricks Free Edition](https://www.databricks.com/learn/free-edition) where the feature is available there. Where a capability requires a paid workspace or is in preview, the relevant guide says so.
+Omnigent is open source and available at [omnigent.ai](https://omnigent.ai). The Databricks portions run on [Databricks Free Edition](https://www.databricks.com/learn/free-edition) wherever the feature is available there. Where a capability needs a paid workspace or sits in preview, the guide says so.
 
-## The series
+## The course
 
-| # | Lesson | What it covers | Guide | Video |
-|---|---|---|---|---|
-| 1 | Smart Routing | Routing each task to the lowest cost capable model with the Omnigent intelligent model router | [Read](./01-smart-routing.md) | <!-- GAP --> |
-| 2 | Agent Policies | Spend budgets, tool call limits, and the contextual session risk score | [Read](./02-agent-policies.md) | <!-- GAP --> |
-| 3 | Unity AI Gateway | One endpoint across multiple model providers, and spend visibility through system tables and Genie | [Read](./03-unity-ai-gateway.md) | <!-- GAP --> |
-| 4 | Agent Memory | | | |
-| 5 | | | | |
-| 6 | | | | |
-| 7 | | | | |
-| 8 | | | | |
-| 9 | | | | |
-| 10 | | | | |
+| # | Lesson | What you learn to do | Guide | Lab | Video |
+|---|---|---|---|---|---|
+| 1 | Smart Routing | Send every task to the lowest cost model that can handle it, with the Omnigent intelligent model router | [Read](./01-smart-routing.md) | [Lab](./01-smart-routing.md#your-lab) | <!-- GAP --> |
+| 2 | Agent Policies and Budgets | Cap agent spend, limit repeated tool calls, and gate risky actions behind human approval | [Read](./02-agent-policies.md) | [Lab](./02-agent-policies.md#your-lab) | <!-- GAP --> |
+| 3 | Unity AI Gateway | Put several model providers behind one endpoint and see spend per model, per user, per tool | [Read](./03-unity-ai-gateway.md) | [Lab](./03-unity-ai-gateway.md#your-lab) | <!-- GAP --> |
+| 4 | Agent Memory | Give agents working, episodic, semantic, and procedural memory | Coming soon | Coming soon | Coming soon |
+| 5 | Memory Scaling | Distill long histories into a knowledge store agents can retrieve from | Coming soon | Coming soon | Coming soon |
+| 6 | Curating Agent Context | Build the context an agent sees from governed enterprise data | Coming soon | Coming soon | Coming soon |
+| 7 | AI Guardrails | Run PII, unsafe content, and prompt injection checks on every call | Coming soon | Coming soon | Coming soon |
+| 8 | Multi-Agent Patterns | Pick an architecture for agents that work together | Coming soon | Coming soon | Coming soon |
+| 9 | Evaluation and Tracing | Measure whether an agent is actually getting better | Coming soon | Coming soon | Coming soon |
+| 10 | Governing Agents at Scale | Bring agents, tools, and memory under Unity Catalog | Coming soon | Coming soon | Coming soon |
 
-<!-- GAP: lesson titles and one-line descriptions for lessons 4 through 10 -->
+<!-- GAP: confirm lesson titles 4 through 10 and swap in the video URLs as each drops -->
 
 ## The control layer
 
-A model on its own is not a production system. An agent running against real tools and real money needs a runtime layer that decides:
+A model on its own is not a production system. An agent with real tools and a real budget needs a runtime layer that decides:
 
-- which model should handle each task
+- which model handles each task
 - what the agent is allowed to do
 - when a human has to approve an action
 - how much a user, team, agent, or application can spend
 - how every model call and tool call is logged and traced
 
-The first three lessons cover exactly that layer.
+Lessons 1 through 3 build that layer. Lessons 4 through 6 give the agent memory on top of it. Lessons 7 through 10 govern the whole thing.
 
-```mermaid
-flowchart TD
-    U[User / Application] --> A[Agent]
-    A --> P["Policies<br/>allow / ask / deny"]
-    P --> S["Smart routing<br/>model selection per task"]
-    S --> G["Unity AI Gateway<br/>access, budgets, tracing"]
-    G --> M[Models]
-    G --> T[Tools and MCP servers]
-    G -.-> ST[(Databricks system tables)]
-```
+## Follow the course
 
-## Follow the series
-
+- YouTube: <!-- GAP: playlist URL -->
 - LinkedIn: [linkedin.com/in/semaan](https://www.linkedin.com/in/semaan/)
 - Instagram: [@viktoria.semaan](https://www.instagram.com/viktoria.semaan/)
-- YouTube: <!-- GAP: series playlist URL -->
 
 ## Note
 
-These guides are educational. Product interfaces and preview capabilities change, so verify current Databricks and Omnigent documentation before using any example in production.
+These guides are educational. Product interfaces and preview capabilities change, so check current Databricks and Omnigent documentation before using any example in production.
 
 ## License
 
