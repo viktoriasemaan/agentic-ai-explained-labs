@@ -25,15 +25,8 @@ Each lesson links to a single guide. Read the guide, run the lab, take the chall
 | 1 | [🧭 **Smart Routing**](./01-smart-routing.md) | Send every task to the lowest-cost model that can handle it, with the Omnigent intelligent model router |
 | 2 | [🛡️ **Agent Policies & Budgets**](./02-agent-policies.md) | Cap agent spend, limit repeated tool calls, and gate risky actions behind human approval |
 | 3 | [🌐 **Unity AI Gateway**](./03-unity-ai-gateway.md) | Put several model providers behind one endpoint and see spend per model, per user, per tool |
-| 4 | 🧩 Agent Memory | Give agents working, episodic, semantic, and procedural memory · 🔜 |
-| 5 | 📈 Memory Scaling | Distill long histories into a knowledge store agents can retrieve from · 🔜 |
-| 6 | 🗂️ Curating Agent Context | Build the context an agent sees from governed enterprise data · 🔜 |
-| 7 | 🚧 AI Guardrails | Run PII, unsafe content, and prompt injection checks on every call · 🔜 |
-| 8 | 🤝 Multi-Agent Patterns | Pick an architecture for agents that work together · 🔜 |
-| 9 | 🔬 Evaluation & Tracing | Measure whether an agent is actually getting better · 🔜 |
-| 10 | 🏛️ Governing Agents at Scale | Bring agents, tools, and memory under Unity Catalog · 🔜 |
 
-<!-- GAP: confirm lesson titles 4 through 10 as each drops -->
+🔜 **Lessons 4–10 coming soon** — agent memory, context curation, guardrails, multi-agent patterns, evaluation and tracing, and governing agents at scale.
 
 ## 🧱 The control layer
 
