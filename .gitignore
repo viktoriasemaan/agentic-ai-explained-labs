@@ -1,3 +1,9 @@
 .DS_Store
 Thumbs.db
 *.tmp
+
+# local scene sources, skill bundles, and unused brand assets (not published)
+*.skill
+agents-cost-scene.html
+ai-gateway-scenes*.html
+assets/logo-omnigent-full-color-white.svg
