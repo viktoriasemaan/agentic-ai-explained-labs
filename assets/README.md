@@ -16,6 +16,13 @@ Two kinds of visuals live here:
 | `ai-governance-explained.gif` | 03, closing | The end-to-end governance picture |
 | `unity-ai-gateway.gif` | README hero | "One control point" — every request through the gateway |
 
+## Brand
+
+| File | Used in | Notes |
+|---|---|---|
+| `databricks-logo-light.png` | README | Databricks primary lockup, full color (light backgrounds) |
+| `databricks-logo-dark.png` | README | Databricks primary lockup, white (dark backgrounds) — swapped via `<picture>` |
+
 ## Scene stills
 
 All are exports of the animated scenes in `ai-gateway-scenes.html` and

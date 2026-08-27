@@ -111,13 +111,25 @@ Those controls belong to the policy layer and the gateway layer. [Lesson 2](./02
 
 ## 🧪 Your lab
 
-Omnigent is open source. Start at [omnigent.ai](https://omnigent.ai).
+Omnigent is open source, and this whole lab costs only cents in model calls — the converter is deliberately tiny. Start at [omnigent.ai](https://omnigent.ai).
 
-1. Open Omnigent and select **Polly** from the agent picker.
-2. Click the **intelligent model router** icon to the right of the chat input, and confirm it shows as pressed.
-3. Ask it to build something small with a clear frontend and backend split. A unit converter works.
-4. Watch the **routing chip** above each response and read the reasoning line on every decision.
-5. Open a new session, enable the router again, and send a trivial request to see the downshift.
+**Part 1 — watch the router reach for a capable model**
+
+1. Open Omnigent. You should land on *"What should we do?"*.
+2. In the **agent picker**, select **Polly** (multi-agent coding). Keep the default orchestrator.
+3. Click the **intelligent model router** icon just to the right of the chat input, and confirm it shows as **pressed**. This toggle resets on every new session, so it is easy to miss.
+4. Paste a small build with a clear front/back split:
+   > Build a simple app that converts Celsius to Fahrenheit.
+5. **What you'll see:** a routing chip above the response — for example *Intelligent model router · sonnet* — with a one-line reason. As the build splits, the backend and frontend tasks route to different models and run in parallel.
+
+**Part 2 — watch it downshift on a trivial ask**
+
+6. Open a **new session**, then click the router icon again (it reset).
+7. Paste something trivial:
+   > Give me a one-line status update template I can paste in Slack.
+8. **What you'll see:** the router picks the cheapest model — for example *Intelligent model router · haiku* — with a reason like *"simple template creation task requires minimal capability."* Same router, a fraction of the cost.
+
+> 💡 No routing chip on your first response means the toggle was not enabled. Start a fresh session and click it before sending.
 
 ## 🏆 Your challenge
 

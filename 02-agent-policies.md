@@ -123,14 +123,33 @@ Agent governance covers both, using the same mechanism.
 
 ## 🧪 Your lab
 
-Omnigent is open source. Start at [omnigent.ai](https://omnigent.ai).
+Omnigent is open source, and this lab costs only a few cents — you are wiring up guardrails on a tiny task, not spending a budget. Start at [omnigent.ai](https://omnigent.ai).
 
-1. Start a session and open **agent tools and policies**.
-2. Select which MCP servers the agent may reach.
-3. Add a **session cost budget** with a hard limit and two or three soft checkpoints.
-4. Add the **session risk score** policy using the configuration above.
-5. Ask the agent to run three separate shell commands one at a time, and watch the third one get held.
-6. Approve it, and confirm the agent continues.
+**Set up the guardrails**
+
+1. Start a session and open **Agent tools and policies**.
+2. Select which **MCP servers** the agent may reach — this fixes the surface area before any policy applies.
+3. Add a **Session Cost Budget** with a hard limit and two or three soft checkpoints (for example, hard $10 with soft limits at $2, $5, and $7). On a small task you will not come close to these; the point is to see the checkpoint wired up.
+4. Click **Add policy → Session Risk Score** and fill in exactly these fields:
+
+   | Field | Value |
+   |---|---|
+   | `tool_points` | `{"Bash": 30, "sys_os_shell": 30}` |
+   | `guarded_tools` | `Bash,sys_os_shell` |
+   | `threshold` | `50` |
+   | `action` | `ASK` |
+   | `reason` | `Session risk threshold reached — shell commands now require human approval` |
+
+   **What you'll see:** `session_risk_score` appears under POLICIES. You attached it to a running session without interrupting anything.
+
+**Trip the policy**
+
+5. Paste this into the same session:
+   > Run these three commands one at a time, each as its own separate shell tool call (do not combine them): 1) `whoami` 2) `date` 3) `ls /tmp`. Report each result as you go.
+6. **What you'll see:** `whoami` runs (score 0 → 30), `date` runs (score 30 → 60), and `ls /tmp` is **held for approval** — score 60 is at or above the threshold of 50. Nothing about the third command is more dangerous; what changed is what the agent had already done this session.
+7. Click **Approve** and confirm the agent continues.
+
+> 💡 List every shell alias your harnesses use. `sys_os_shell` covers the Omnigent orchestrator and `Bash` covers Claude Code — a policy naming only one will not fire in the other.
 
 ## 🏆 Your challenge
 
