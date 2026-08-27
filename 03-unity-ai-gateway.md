@@ -14,15 +14,7 @@ You create an endpoint in **Unity AI Gateway** and place several models behind i
 
 The more AI tools an organization adds, the harder one simple question becomes: **how much are we spending, and on what?**
 
-<p align="center">
-  <img src="./assets/gateway-the-question.png" alt="The words How much are you spending, forming out of scattered particles" width="440">
-</p>
-
 A production environment ends up holding frontier models, open-weight models, external providers, coding agents, custom agents, MCP servers, enterprise tools, and several teams calling all of it. Without a shared layer, each integration carries its own credentials, access rules, budgets, logs, routing logic, guardrails, and monitoring. Answering the spend question means assembling numbers from every one of them.
-
-<p align="center">
-  <img src="./assets/gateway-tool-sprawl.png" alt="A grid of AI tools — Claude, GPT, Gemini, Llama, MCP servers, agents, tools, notebooks — each with an unknown dollar cost, captioned nine places to look for one answer" width="440">
-</p>
 
 A second problem sits alongside it. Models change on a weekly cadence. An application with a model name hard-coded into it has to be edited every time a better option appears, and every application has to be edited separately.
 
@@ -34,15 +26,7 @@ A second problem sits alongside it. Models change on a weekly cadence. An applic
 
 The endpoint is the **stable name** an application calls. What sits behind it is a configuration detail.
 
-<p align="center">
-  <img src="./assets/gateway-create-endpoint.png" alt="Creating an endpoint named team-assistant of type chat completions, governed by Unity Catalog" width="440">
-</p>
-
 Because models change every week, I don't want to hard-code a model name. So instead of pointing an app at one provider, I put **several models behind one endpoint.**
-
-<p align="center">
-  <img src="./assets/gateway-several-models-one-endpoint.png" alt="A single endpoint named team-assistant fronting Claude, GPT, Gemini, and Llama, with no model name in the application code" width="480">
-</p>
 
 | Layer | Changes how often | Who owns it |
 |---|---|---|
@@ -65,10 +49,6 @@ A trivial question isolates the routing behavior. Any variation you see is the e
 ---
 
 ## 🗄️ Where does the usage data land?
-
-<p align="center">
-  <img src="./assets/gateway-system-tables.png" alt="A system table logging each request with time, model, user, and cost, captioned the answer is already in a table" width="480">
-</p>
 
 Every request that passes through the gateway is logged to [**Databricks system tables**](https://docs.databricks.com/aws/en/ai-gateway/query-model-services). That is what turns spend from an estimate into a query.
 
@@ -95,15 +75,7 @@ LIMIT 50;
 
 Because the usage data sits in tables, you do not have to write SQL to work with it. I ask [**Genie**](https://docs.databricks.com/aws/en/genie/) which models I used recently and it returns the list in plain language.
 
-<p align="center">
-  <img src="./assets/gateway-ask-genie.png" alt="Genie answering the natural-language question who spent the most last week with a ranked list: maria $1,240, arjun $980, sofia $610" width="480">
-</p>
-
 I can also ask Genie to **build a dashboard** for my team or for myself.
-
-<p align="center">
-  <img src="./assets/gateway-dashboard.png" alt="A last-30-days dashboard of spend by model: claude $4,120, gpt $2,860, gemini $1,590, llama $640, across the team and the company" width="480">
-</p>
 
 The dashboard gives the breakdown that matters in a budget conversation.
 
@@ -114,10 +86,6 @@ The dashboard gives the breakdown that matters in a budget conversation.
 | Per tool or application | Which workload is responsible |
 | Per endpoint | Which access path was used |
 | Over time | Whether spend is trending up |
-
-<p align="center">
-  <img src="./assets/gateway-spend-per-model-user-tool.png" alt="Spend broken down per model, per user, and per tool in one dashboard, with a Try it yourself call to action" width="480">
-</p>
 
 This moves the organization from a rough idea of where AI spend is going to **seeing it broken down per model, per user, and per tool in one dashboard.**
 

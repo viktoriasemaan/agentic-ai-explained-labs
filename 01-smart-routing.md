@@ -95,20 +95,6 @@ Session cost is visible live in the Omnigent policies panel. Every model call ma
 
 ---
 
-## 🚧 What smart routing does not cover
-
-Routing answers *which model handles a task.* It does not answer:
-
-- whether this user may access that model
-- whether the agent may execute a given tool
-- whether a human should approve an action before it runs
-- whether a user or team has exceeded a budget
-- what the request cost and where the trace is
-
-Those controls belong to the policy layer and the gateway layer. [Lesson 2](./02-agent-policies.md) covers policies. [Lesson 3](./03-unity-ai-gateway.md) covers Unity AI Gateway.
-
----
-
 ## 🧪 Your lab
 
 Omnigent is open source, and this whole lab costs only cents in model calls — the converter is deliberately tiny. Start at [omnigent.ai](https://omnigent.ai).

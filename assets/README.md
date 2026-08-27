@@ -32,15 +32,12 @@ sources are kept local, outside the published repo).
 | File | Used in | Source scene |
 |---|---|---|
 | `gateway-one-control-point.png` | 03, opening | `ai-gateway-scenes.html` i=3 "One control point" |
-| `gateway-the-question.png` | 03, what this solves | i=1 "The question" |
-| `gateway-tool-sprawl.png` | 03, what this solves | i=0 "Tool sprawl" |
-| `gateway-create-endpoint.png` | 03, creating an endpoint | i=5 "Create an endpoint" |
-| `gateway-several-models-one-endpoint.png` | 03, creating an endpoint | i=6 "Several models" |
-| `gateway-system-tables.png` | 03, usage data | i=7 "System tables" |
-| `gateway-ask-genie.png` | 03, asking Genie | i=9 "Ask Genie" |
-| `gateway-dashboard.png` | 03, asking Genie | i=8 "Dashboard" |
-| `gateway-spend-per-model-user-tool.png` | 03, payoff | i=10 "Payoff and CTA" |
 | `agent-parallel-spend.png` | 02, what this solves | `agents-cost-scene.html` i=0 "Parallel agents" |
+
+The gateway scene deck has more scenes (tool sprawl i=0, the question i=1, create
+endpoint i=5, several models i=6, system tables i=7, dashboard i=8, ask Genie i=9,
+payoff i=10). They are not embedded in the guide by choice — regenerate any of them
+with the pipeline below if a section ever needs one.
 
 ## Re-exporting the scene stills
 
