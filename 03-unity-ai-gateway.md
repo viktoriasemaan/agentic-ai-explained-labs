@@ -26,7 +26,7 @@ A production environment ends up holding frontier models, open-weight models, ex
 
 A second problem sits alongside it. Models change on a weekly cadence. An application with a model name hard-coded into it has to be edited every time a better option appears, and every application has to be edited separately.
 
-**Unity AI Gateway is a runtime control layer** in front of models, agents, MCP servers, and tools. Access and spend get defined once, in one control plane.
+[**Unity AI Gateway**](https://docs.databricks.com/aws/en/ai-gateway) is a runtime control layer in front of models, agents, MCP servers, and tools. Access and spend get defined once, in one control plane.
 
 ---
 
@@ -58,7 +58,7 @@ This also gives you a comparison surface. With several providers behind one endp
 
 ## 🧪 Testing the endpoint
 
-I test in the **AI Playground** with a question simple enough that every model answers it correctly, such as the capital of a country. Running it several times shows the requests distributing across the models behind the endpoint.
+I test in the [**AI Playground**](https://docs.databricks.com/aws/en/large-language-models/ai-playground) with a question simple enough that every model answers it correctly, such as the capital of a country. Running it several times shows the requests distributing across the models behind the endpoint.
 
 A trivial question isolates the routing behavior. Any variation you see is the endpoint distributing traffic, and none of it is the models disagreeing about the answer.
 
@@ -70,7 +70,7 @@ A trivial question isolates the routing behavior. Any variation you see is the e
   <img src="./assets/gateway-system-tables.png" alt="A system table logging each request with time, model, user, and cost, captioned the answer is already in a table" width="480">
 </p>
 
-Every request that passes through the gateway is logged to **Databricks system tables.** That is what turns spend from an estimate into a query.
+Every request that passes through the gateway is logged to [**Databricks system tables**](https://docs.databricks.com/aws/en/ai-gateway/query-model-services). That is what turns spend from an estimate into a query.
 
 ```sql
 SELECT
@@ -87,13 +87,13 @@ ORDER BY event_time DESC
 LIMIT 50;
 ```
 
-> ⏳ **Ingestion is not immediate.** Rows can take an hour or more to land, so a query run seconds after a request may return nothing. When demonstrating this, query a window that includes earlier activity. Check the current schema in the Databricks documentation before depending on this query in production.
+> ⏳ **Ingestion is not immediate.** Rows can take an hour or more to land, so a query run seconds after a request may return nothing. When demonstrating this, query a window that includes earlier activity. Check the current schema in the [Databricks documentation](https://docs.databricks.com/aws/en/ai-gateway/query-model-services) before depending on this query in production.
 
 ---
 
 ## 💬 Asking Genie for the same answer
 
-Because the usage data sits in tables, you do not have to write SQL to work with it. I ask **Genie** which models I used recently and it returns the list in plain language.
+Because the usage data sits in tables, you do not have to write SQL to work with it. I ask [**Genie**](https://docs.databricks.com/aws/en/genie/) which models I used recently and it returns the list in plain language.
 
 <p align="center">
   <img src="./assets/gateway-ask-genie.png" alt="Genie answering the natural-language question who spent the most last week with a ranked list: maria $1,240, arjun $980, sofia $610" width="480">
@@ -137,7 +137,7 @@ Spend visibility gets attention first. The same layer carries several other cont
 
 ## 🏛️ Unity Catalog and Unity AI Gateway
 
-The two layers do different jobs. **Unity Catalog** defines and governs the assets and permissions across data, models, agents, MCP servers, tools, and skills. **Unity AI Gateway** applies that governance in the runtime path, on the actual request, and records what happened.
+The two layers do different jobs. [**Unity Catalog**](https://docs.databricks.com/aws/en/data-governance/unity-catalog/) defines and governs the assets and permissions across data, models, agents, MCP servers, tools, and skills. **Unity AI Gateway** applies that governance in the runtime path, on the actual request, and records what happened.
 
 <p align="center">
   <img src="./assets/ai-governance-explained.gif" alt="Animated governance map: users and agents on the left flow through authentication and the gateway into governed models, agents, MCP servers, and tools, with spend and audit recorded throughout" width="640">

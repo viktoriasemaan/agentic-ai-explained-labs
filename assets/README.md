@@ -25,8 +25,9 @@ Two kinds of visuals live here:
 
 ## Scene stills
 
-All are exports of the animated scenes in `ai-gateway-scenes.html` and
-`agents-cost-scene.html` (0-indexed `?i=` scene numbers below).
+All are exports of the animated scenes in `internal/ai-gateway-scenes.html` and
+`internal/agents-cost-scene.html` (0-indexed `?i=` scene numbers below; the scene
+sources are kept local, outside the published repo).
 
 | File | Used in | Source scene |
 |---|---|---|

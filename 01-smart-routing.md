@@ -2,7 +2,7 @@
 
 *Part of the **Agentic AI Explained** series · Lesson 1 of 10 · Last updated: August 27, 2026*
 
-Smart routing evaluates every task in a session separately and sends it to the **lowest-cost model capable of completing it**. In Omnigent, an open-source meta harness that lets different agents share context, you turn this on with the intelligent model router. The router classifies each task, picks a model, and shows its reasoning on screen. Omnigent runs on its own and is also available hosted on Databricks, where model calls route through Unity AI Gateway and usage lands in system tables.
+Smart routing evaluates every task in a session separately and sends it to the **lowest-cost model capable of completing it**. In Omnigent, an open-source meta harness that lets different agents share context, you turn this on with the intelligent model router. The router classifies each task, picks a model, and shows its reasoning on screen. Omnigent runs on its own and is also available hosted on Databricks, where model calls route through [Unity AI Gateway](https://docs.databricks.com/aws/en/ai-gateway) and usage lands in system tables.
 
 <p align="center">
   <img src="./assets/omnigent-explained.gif" alt="Animated diagram of the Omnigent meta-harness: a server and runner coordinate multiple agent harnesses that share one context, access control, and policy layer" width="640">
